@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* ===== GLOBAL RESET & FONT ===== */
+*, *::before, *::after {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050507;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: white;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+
+/* ===== KEYFRAMES ===== */
+@keyframes aurora {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(40px, -60px) scale(1.15); }
+  66%      { transform: translate(-30px, 30px) scale(0.9); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  50%     { transform: translateY(-18px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.25); }
+  50%     { box-shadow: 0 0 50px rgba(236, 72, 153, 0.55); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.aurora-orb {
+  animation: aurora 10s ease-in-out infinite;
+}
+
+.floating {
+  animation: float 5s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6, #f59e0b);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-pink {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.spin-slow {
+  animation: spin-slow 4s linear infinite;
+}
