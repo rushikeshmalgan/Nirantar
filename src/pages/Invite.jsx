@@ -166,7 +166,7 @@ function Invite() {
             <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.35em] text-center mb-2.5">Entry Ticket Code</p>
             <div className="bg-black/50 border border-white/8 rounded-2xl py-4 px-5 text-center">
               <p className="text-white font-mono text-lg font-bold tracking-[0.15em]">
-                VIP-{user.phone.slice(-4)}-{user.department.toUpperCase()}
+                {user.vipNumber || `VIP-${user.phone?.slice(-4)}-${user.department?.toUpperCase()}`}
               </p>
             </div>
           </div>

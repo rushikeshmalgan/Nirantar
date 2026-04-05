@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Kalam:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 /* ===== GLOBAL RESET & FONT ===== */
 *, *::before, *::after {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Poppins', system-ui, sans-serif;
   box-sizing: border-box;
 }
 
@@ -11,21 +12,21 @@ html {
 }
 
 body {
-  background-color: #050507;
-  color: white;
+  background-color: #2C1810;
+  color: #FAF3E0;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(244, 131, 31, 0.4);
   color: white;
 }
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
-::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+::-webkit-scrollbar-track { background: #1A0A06; }
+::-webkit-scrollbar-thumb { background: #D4A017; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #F4831F; }
 
 /* ===== KEYFRAMES ===== */
 @keyframes aurora {
@@ -45,8 +46,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%,100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.25); }
-  50%     { box-shadow: 0 0 50px rgba(236, 72, 153, 0.55); }
+  0%,100% { box-shadow: 0 0 20px rgba(244, 131, 31, 0.25); }
+  50%     { box-shadow: 0 0 50px rgba(244, 131, 31, 0.55); }
 }
 
 @keyframes spin-slow {
@@ -79,7 +80,7 @@ body {
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6, #f59e0b);
+  background: linear-gradient(90deg, #F4831F, #D4A017, #C0392B, #F4831F);
   background-size: 250% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -88,13 +89,13 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(250, 243, 224, 0.03);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 160, 23, 0.15);
 }
 
-.glow-pink {
+.glow-saffron {
   animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
