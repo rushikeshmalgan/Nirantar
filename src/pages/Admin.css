@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Kalam:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .admin-dashboard {
   --bg-deep:       #0d0600;
@@ -16,7 +16,21 @@
   --orange:        #e06c28;
   --coin:          #d4a017;
   --shadow:        0 4px 32px rgba(0,0,0,0.7);
+}
 
+[data-theme='light'] .admin-dashboard, [data-theme='light'] {
+  --bg-deep:       #FAF3E0;
+  --bg-card:       #FDF8F0;
+  --bg-card-hover: #ffffff;
+  --border:        rgba(212, 160, 23, 0.4);
+  --text-primary:  #4A1010;
+  --text-muted:    rgba(74, 16, 16, 0.75);
+  --text-dim:      rgba(74, 16, 16, 0.5);
+  --gold-dim:      rgba(212, 160, 23, 0.1);
+  --shadow:        0 4px 32px rgba(0,0,0,0.1);
+}
+
+.admin-dashboard {
   background-color: var(--bg-deep);
   background-image:
     radial-gradient(ellipse 80% 60% at 10% 90%, rgba(120, 60, 0, 0.18) 0%, transparent 70%),
@@ -25,7 +39,7 @@
   background-size: 100% 100%, 100% 100%, 600px 600px;
   background-position: center, center, bottom left;
   background-repeat: no-repeat, no-repeat, repeat;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--text-primary);
   min-height: 100vh;
   padding: 2.5rem 2rem 3rem;
@@ -84,7 +98,7 @@
 }
 
 .admin-header-left h1 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 2.4rem;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -117,7 +131,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -196,7 +210,7 @@
   color: var(--text-muted);
 }
 .admin-stat-value {
-  font-family: 'Cinzel', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.7rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -229,7 +243,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   padding: 11px 16px 11px 42px;
   border-radius: 9px;
@@ -243,7 +257,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   padding: 11px 36px 11px 14px;
@@ -373,7 +387,7 @@
   background: none;
   border: 1px solid var(--border);
   color: var(--text-muted);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -416,8 +430,8 @@
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .admin-table-header, .admin-table-row { grid-template-columns: 2fr 1fr 1fr; }
-  .admin-col-label:nth-child(n+4), .admin-table-row > *:nth-child(n+4) { display: none; }
+  .admin-table-container { overflow-x: auto; }
+  .admin-table-header, .admin-table-row { min-width: 800px; }
   .admin-header-left h1 { font-size: 1.8rem; }
 }
 @media (max-width: 600px) {
@@ -425,6 +439,27 @@
   .admin-stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .admin-filters-row { flex-wrap: wrap; }
   .admin-header-left h1 { font-size: 1.4rem; }
+  
+  /* Stack table on mobile */
+  .admin-table-header { display: none; }
+  .admin-table-body { min-width: 100%; display: block; }
+  .admin-table-row { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    min-width: 100%;
+    padding: 16px; 
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.2);
+  }
+  .admin-actions {
+    justify-content: flex-start;
+    padding-top: 12px;
+    margin-top: auto;
+    border-top: 1px solid rgba(180,100,20,0.1);
+  }
 }
 
 /* Base Login Elements since those weren't explicitly provided in the HTML mock but are part of Admin.jsx */
@@ -441,7 +476,7 @@
   margin: 0 auto;
 }
 .admin-login-wrapper h1 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Playfair Display', serif;
   text-align: center;
   color: var(--text-primary);
   font-size: 1.8rem;
@@ -450,7 +485,7 @@
 .admin-login-wrapper p {
   text-align: center;
   color: var(--text-muted);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin-bottom: 25px;
 }
 .admin-login-input {
@@ -462,7 +497,7 @@
   border-radius: 8px;
   margin-bottom: 15px;
   outline: none;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 }
 .admin-login-input:focus {
@@ -475,7 +510,7 @@
   border: none;
   padding: 12px;
   border-radius: 8px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;

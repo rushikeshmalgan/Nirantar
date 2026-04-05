@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import { motion, AnimatePresence } from 'framer-motion';
 import Toast from '../components/Toast';
+import ThemeToggle from '../components/ThemeToggle';
 import './Login.css';
 
 function Login() {
@@ -104,6 +105,9 @@ function Login() {
             </svg>
             <span className="logo-text">NIRANTAR<span>26</span></span>
           </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ThemeToggle />
+          </div>
         </nav>
 
         <div className="page-wrapper" style={{ justifyContent: 'center' }}>
@@ -208,7 +212,10 @@ function Login() {
           </svg>
           <span className="logo-text">NIRANTAR<span>26</span></span>
         </button>
-        <button onClick={() => navigate('/')} className="nav-back">← Back to Home</button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <ThemeToggle />
+          <button onClick={() => navigate('/')} className="nav-back">← Back to Home</button>
+        </div>
       </nav>
 
       {/* Toran garland */}

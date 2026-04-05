@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from '../components/ThemeToggle';
 import './Admin.css'; // Importing the custom styles provided by the user
 
 function ToastStack({ toasts }) {
@@ -23,7 +24,7 @@ function ToastStack({ toasts }) {
               borderRadius: '8px',
               fontSize: '0.9rem',
               fontWeight: 600,
-              fontFamily: "'Rajdhani', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               backgroundColor: t.type === 'error' ? '#2b0c06' : '#1a0e04',
               border: `1px solid ${t.type === 'error' ? '#e06c28' : '#d4840a'}`,
               color: '#f5e6c8',
@@ -134,6 +135,9 @@ function Admin() {
   if (!isAuthenticated) {
     return (
       <div className="admin-dashboard" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
+          <ThemeToggle />
+        </div>
         <ToastStack toasts={toasts} />
         <div className="admin-login-wrapper">
           <h1>Admin Login</h1>
@@ -178,13 +182,16 @@ function Admin() {
               <span className="dot">✦</span>
             </div>
           </div>
-          <button className="admin-refresh-btn" onClick={() => fetchRegistrations(true)} disabled={refreshing}>
-            <svg className={refreshing ? 'spin-icon' : ''} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-            </svg>
-            Refresh Data
-          </button>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <ThemeToggle />
+            <button className="admin-refresh-btn" onClick={() => fetchRegistrations(true)} disabled={refreshing}>
+              <svg className={refreshing ? 'spin-icon' : ''} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+              Refresh Data
+            </button>
+          </div>
         </div>
 
         {/* Stats */}

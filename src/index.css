@@ -1,5 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Kalam:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Kalam:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+:root {
+  --bg-primary: #2C1810;
+  --text-primary: #FAF3E0;
+  
+  --bg-card: rgba(44, 24, 16, 0.8);
+  --bg-card-hover: rgba(44, 24, 16, 0.95);
+  
+  --nav-bg: rgba(44, 24, 16, 0.95);
+  --border-color: rgba(212, 160, 23, 0.22);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+
+  --text-muted: rgba(250, 243, 224, 0.6);
+  --text-dim: rgba(250, 243, 224, 0.35);
+
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-focus-bg: rgba(244, 131, 31, 0.04);
+
+  --bg-overlay: rgba(0, 0, 0, 0.2);
+
+  /* Global colors */
+  --saffron: #F4831F;
+  --deep-saffron: #C4521A;
+  --turmeric: #E8C547;
+  --sindoor: #C0392B;
+  --maroon: #7B1A1A;
+  --ivory: #FAF3E0;
+  --cream: #FDF8F0;
+  --gold: #D4A017;
+  --dark-brown: #2C1810;
+  --deep-green: #1A4A2E;
+  --peacock: #006B6B;
+  --rose: #D4547A;
+}
+
+[data-theme='light'] {
+  --bg-primary: #FAF3E0;
+  --text-primary: #4A1010;
+
+  --bg-card: rgba(253, 248, 240, 0.95);
+  --bg-card-hover: rgba(255, 255, 255, 1);
+  
+  --nav-bg: rgba(250, 243, 224, 0.95);
+  --border-color: rgba(212, 160, 23, 0.35);
+  --glass-bg: rgba(212, 160, 23, 0.06);
+
+  --text-muted: rgba(74, 16, 16, 0.75);
+  --text-dim: rgba(74, 16, 16, 0.5);
+
+  --input-bg: rgba(255, 255, 255, 0.6);
+  --input-focus-bg: rgba(244, 131, 31, 0.08);
+
+  --bg-overlay: rgba(212, 160, 23, 0.05);
+}
 
 /* ===== GLOBAL RESET & FONT ===== */
 *, *::before, *::after {
@@ -12,9 +66,22 @@ html {
 }
 
 body {
-  background-color: #2C1810;
-  color: #FAF3E0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+}
+
+/* ===== THEME TRANSITION ===== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
 }
 
 ::selection {

@@ -121,7 +121,7 @@ function Invite() {
             >
               ✦ Official VIP Pass ✦
             </motion.p>
-            <h1 className="text-white text-[2rem] font-black tracking-widest leading-none">NIRANTAR</h1>
+            <h1 className="text-white text-[2rem] font-black tracking-widest leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>NIRANTAR</h1>
             <p className="text-yellow-500/70 font-bold text-xs tracking-[0.25em] mt-1">FRESHERS 2026</p>
           </div>
 

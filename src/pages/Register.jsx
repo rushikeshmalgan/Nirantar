@@ -4,6 +4,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Toast from '../components/Toast';
+import ThemeToggle from '../components/ThemeToggle';
 import './Register.css'; // New scoped styles
 import qrCode from '../assets/100.jpeg';
 
@@ -231,7 +232,10 @@ function Register() {
           </svg>
           <span className="logo-text">NIRANTAR<span>26</span></span>
         </button>
-        <button onClick={() => navigate('/')} className="nav-back">← Back to Home</button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <ThemeToggle />
+          <button onClick={() => navigate('/')} className="nav-back">← Back to Home</button>
+        </div>
       </nav>
 
       {/* Toran garland */}
